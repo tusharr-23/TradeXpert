@@ -5,13 +5,17 @@ function Awards() {
     <div className="container mt-5">
       <div className="row">
         <div className="col-6 p-5">
-          <img src="media/images/largestBroker.svg" alt="image" />
+          <img
+            src="media/images/largestBroker.svg"
+            alt="Largest stock broker in India"
+            className="img-responsive"
+          />
         </div>
         <div className="col-6 p-5 mt-3">
           <h1>Largest stock broker in India</h1>
 
           <p className="mb-5">
-            2+ millions Zerodha clients contribute to over 15% of all retail
+            2+ millions TradeXpert clients contribute to over 15% of all retail
             order volumes in India daily by trading and investing in:
           </p>
 
@@ -45,8 +49,9 @@ function Awards() {
           </div>
           <img
             src="media/images/pressLogos.png"
-            alt="image"
-            style={{ width: "90%" }}
+            alt="Press logos"
+            className="img-responsive"
+            style={{ maxWidth: "90%" }}
           />
         </div>
       </div>

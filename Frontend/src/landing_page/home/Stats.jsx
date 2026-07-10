@@ -9,8 +9,8 @@ function Stats() {
 
           <h3 className="fs-4">Customer-first always</h3>
           <p className="text-muted">
-            That's why 1.5+ crore customers trust Zerodha with ₹4.5+ lakh crores
-            of equity investments.
+            That's why 1.5+ crore customers trust TradeXpert with ₹4.5+ lakh
+            crores of equity investments.
           </p>
 
           <h3 className="fs-4">No spam or gimmicks</h3>
@@ -19,7 +19,7 @@ function Stats() {
             High quality apps that you use at your pace, the way you like.
           </p>
 
-          <h3 className="fs-4">The Zerodha universe</h3>
+          <h3 className="fs-4">The TradeXpert universe</h3>
           <p className="text-muted">
             Not just an app, but a whole ecosystem. Our investments in 30+
             fintech startups offer you tailored services specific to your needs.
@@ -35,14 +35,17 @@ function Stats() {
         <div className="col-6 mt-5">
           <img
             src="media/images/ecosystem.png"
-            alt="image"
-            style={{ width: "100%" }}
+            alt="Zerodha ecosystem"
+            className="img-responsive"
           />
-          <div className="text-center">
-            <a href="#" className="mx-5" style={{ textDecoration: "none" }}>
+          <div
+            className="text-center"
+            style={{ marginTop: "var(--spacing-lg)" }}
+          >
+            <a href="#">
               Explore our products <i className="fa-solid fa-arrow-right"></i>
             </a>
-            <a href="#" style={{ textDecoration: "none" }}>
+            <a href="#" style={{ marginLeft: "var(--spacing-2xl)" }}>
               Try Kite demo <i className="fa-solid fa-arrow-right"></i>
             </a>
           </div>

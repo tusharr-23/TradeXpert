@@ -3,9 +3,9 @@ import React from "react";
 function Hero() {
   return (
     <section className="container-fluid" id="supportHero">
-      <div className="" id="supportWrapper">
-        <h5 className="mt-4 ">Support Portal</h5>
-        <a href="" className="mt-2 p-3">
+      <div id="supportWrapper">
+        <h5 className="mt-4">Support Portal</h5>
+        <a href="#" className="mt-2 p-3">
           Track tickets
         </a>
       </div>
@@ -18,17 +18,17 @@ function Hero() {
             className="mb-4"
             type="text"
             placeholder="Eg. how do I activate F&O..."
-          />{" "}
+          />
           <br />
-          <a href="">Track account opening </a>
-          <a href="" style={{ paddingLeft: "0.75rem" }}>
-            Track segment activation{" "}
+          <a href="#">Track account opening </a>
+          <a href="#" style={{ paddingLeft: "var(--spacing-md)" }}>
+            Track segment activation
           </a>
-          <a href="" style={{ paddingLeft: "0.75rem" }}>
+          <a href="#" style={{ paddingLeft: "var(--spacing-md)" }}>
             Intraday margins
-          </a>{" "}
+          </a>
           <br />
-          <a href="" style={{ paddingTop: "0.75rem" }}>
+          <a href="#" style={{ paddingTop: "var(--spacing-md)" }}>
             Kite user manual
           </a>
         </div>
@@ -37,7 +37,7 @@ function Hero() {
           <p>
             Users will not be able to add funds to the equity segment from 8 PM
             to 12 AM due to the upcoming quarterly settlement.{" "}
-            <a href="">Read more.</a>
+            <a href="#">Read more.</a>
           </p>
         </div>
       </div>

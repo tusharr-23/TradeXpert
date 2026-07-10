@@ -9,136 +9,57 @@ function CreateTicket() {
         </h3>
         <div className="col-4 p-4 mt-3">
           <h5>Account Opening</h5>
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Resident individual
-          </a>{" "}
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Minor
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Non Resident Indian (NRI)
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Company, Partnership, HUF and LLP
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Glossary
-          </a>
+          <a href="#">Resident individual</a>
+          <a href="#">Minor</a>
+          <a href="#">Non Resident Indian (NRI)</a>
+          <a href="#">Company, Partnership, HUF and LLP</a>
+          <a href="#">Glossary</a>
         </div>
 
         <div className="col-4 p-4 mt-3">
-          <h5>Your Zerodha Account </h5>
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Your Profile
-          </a>{" "}
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Account modification
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
+          <h5>Your TradeXpert Account </h5>
+          <a href="#">Your Profile</a>
+          <a href="#">Account modification</a>
+          <a href="#">
             Client Master Report (CMR) and Depository Participant (DP)
           </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Nomination
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Transfer and conversion of securities
-          </a>
+          <a href="#">Nomination</a>
+          <a href="#">Transfer and conversion of securities</a>
         </div>
 
         <div className="col-4 p-4 mt-3">
           <h5>Kite</h5>
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            IPO
-          </a>{" "}
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Trading FAQs
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Margin Trading Facility (MTF) and Margins
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Charts and orders
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Alerts and Nudges
-          </a>
+          <a href="#">IPO</a>
+          <a href="#">Trading FAQs</a>
+          <a href="#">Margin Trading Facility (MTF) and Margins</a>
+          <a href="#">Charts and orders</a>
+          <a href="#">Alerts and Nudges</a>
         </div>
 
         <div className="col-4 p-4 mt-3 mb-3">
-          <h5> Funds</h5>
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Add money
-          </a>{" "}
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Withdraw money
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Add bank accounts
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            eMandates
-          </a>
+          <h5>Funds</h5>
+          <a href="#">Add money</a>
+          <a href="#">Withdraw money</a>
+          <a href="#">Add bank accounts</a>
+          <a href="#">eMandates</a>
         </div>
 
         <div className="col-4 p-4 mt-3 mb-3">
           <h5>Console</h5>
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Portfolio
-          </a>{" "}
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Corporate actions
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Funds statement
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Reports
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Profile
-          </a>
+          <a href="#">Portfolio</a>
+          <a href="#">Corporate actions</a>
+          <a href="#">Funds statement</a>
+          <a href="#">Reports</a>
+          <a href="#">Profile</a>
         </div>
 
         <div className="col-4 p-4 mt-3 mb-3">
           <h5>Coin</h5>
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Understanding mutual funds and Coin
-          </a>{" "}
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Coin app
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Coin web
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            Transactions and reports
-          </a>
-          <br />
-          <a href="" style={{ textDecoration: "none", lineHeight: "2" }}>
-            National Pension Scheme (NPS)
-          </a>
+          <a href="#">Understanding mutual funds and Coin</a>
+          <a href="#">Coin app</a>
+          <a href="#">Coin web</a>
+          <a href="#">Transactions and reports</a>
+          <a href="#">National Pension Scheme (NPS)</a>
         </div>
       </div>
     </div>

@@ -4,111 +4,105 @@ function Footer() {
   return (
     <footer
       className="border-top"
-      style={{ backgroundColor: "rgb(250, 250, 250)" }}
+      style={{ backgroundColor: "var(--bg-secondary)" }}
     >
       <div className="container mt-5">
         <div className="row mt-5">
-          <div className="col">
+          <div className="col mb-4 mb-md-0">
             <img
               src="media/images/logo.svg"
-              alt="logo"
-              style={{ width: "50%" }}
+              alt="TradeXpert logo"
+              style={{ maxWidth: "150px", height: "auto" }}
             />
-            <p>© 2010 - 2025, Zerodha Broking Ltd. All rights reserved.</p>
+            <p
+              style={{
+                marginTop: "var(--spacing-md)",
+                fontSize: "var(--font-size-sm)",
+              }}
+            >
+              © 2010 - 2025, TradeXpert Broking Ltd. All rights reserved.
+            </p>
           </div>
 
-          <div className="col">
+          <div className="col mb-4 mb-md-0">
             <p className="footer-heading">Company</p>
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               About
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Products
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Pricing
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Referral programme
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Careers
             </a>
-            <br />
-            <a href="" className="footer-link">
-              Zerodha.tech
+            <a href="#" className="footer-link">
+              TradeXpert.tech
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Open source
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Press & media
             </a>
-            <br />
-            <a href="" className="footer-link">
-              Zerodha Cares (CSR)
+            <a href="#" className="footer-link">
+              TradeXpert Cares (CSR)
             </a>
-            <br />
           </div>
 
-          <div className="col">
+          <div className="col mb-4 mb-md-0">
             <p className="footer-heading">Support</p>
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Contact us
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Support portal
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Z-Connect blog
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               List of charges
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Downloads & resources
             </a>
-            <br />
           </div>
 
-          <div className="col">
+          <div className="col mb-4 mb-md-0">
             <p className="footer-heading">Account</p>
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Open an account
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               Fund transfer
             </a>
-            <br />
-            <a href="" className="footer-link">
+            <a href="#" className="footer-link">
               60 day challenge
             </a>
           </div>
         </div>
-        <div className="mt-5 text-muted" style={{ fontSize: "14px" }}>
+        <div
+          className="mt-5 text-muted"
+          style={{ fontSize: "var(--font-size-xs)" }}
+        >
           <p>
-            Zerodha Broking Ltd.: Member of NSE, BSE​ &​ MCX – SEBI Registration
-            no.: INZ000031633 CDSL/NSDL: Depository services through Zerodha
-            Broking Ltd. – SEBI Registration no.: IN-DP-431-2019 Commodity
-            Trading through Zerodha Commodities Pvt. Ltd. MCX: 46025; NSE-50001
-            – SEBI Registration no.: INZ000038238 Registered Address: Zerodha
-            Broking Ltd., #153/154, 4th Cross, Dollars Colony, Opp. Clarence
-            Public School, J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka,
-            India. For any complaints pertaining to securities broking please
-            write to complaints@zerodha.com, for DP related to dp@zerodha.com.
-            Please ensure you carefully read the Risk Disclosure Document as
-            prescribed by SEBI | ICF
+            TradeXpert Broking Ltd.: Member of NSE, BSE​ &​ MCX – SEBI
+            Registration no.: INZ000031633 CDSL/NSDL: Depository services
+            through TradeXpert Broking Ltd. – SEBI Registration no.:
+            IN-DP-431-2019 Commodity Trading through TradeXpert Commodities Pvt.
+            Ltd. MCX: 46025; NSE-50001 – SEBI Registration no.: INZ000038238
+            Registered Address: TradeXpert Broking Ltd., #153/154, 4th Cross,
+            Dollars Colony, Opp. Clarence Public School, J.P Nagar 4th Phase,
+            Bengaluru - 560078, Karnataka, India. For any complaints pertaining
+            to securities broking please write to complaints@tradexpert.com, for
+            DP related to dp@tradexpert.com. Please ensure you carefully read
+            the Risk Disclosure Document as prescribed by SEBI | ICF
           </p>
 
           <p>

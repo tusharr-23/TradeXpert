@@ -124,7 +124,7 @@ const Login = () => {
       const { data } = await axios.post(
         "http://localhost:5174/login", // backend auth API
         { ...inputValue },
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       console.log(data);

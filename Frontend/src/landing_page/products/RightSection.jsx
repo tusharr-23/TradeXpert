@@ -13,13 +13,11 @@ function RightSection({
           <h2 className="mb-4">{productName}</h2>
           <p className="mb-4">{productDescription}</p>
           <div className="mb-4">
-            <a href={learnMore} style={{ textDecoration: "none" }}>
-              Learn More →
-            </a>
+            <a href={learnMore}>Learn More →</a>
           </div>
         </div>
         <div className="col-6 p-3">
-          <img src={imageURL} alt="" style={{ width: "100%" }} />
+          <img src={imageURL} alt={productName} className="img-responsive" />
         </div>
       </div>
     </div>

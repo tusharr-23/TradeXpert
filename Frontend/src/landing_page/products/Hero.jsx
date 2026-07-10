@@ -9,10 +9,7 @@ function Hero() {
           Sleek, modern, and intuitive trading platforms
         </h3>
         <p className="mt-3">
-          Check out our{" "}
-          <a href="#" style={{ textDecoration: "none" }}>
-            investment offerings →
-          </a>
+          Check out our <a href="#">investment offerings →</a>
         </p>
       </div>
     </div>

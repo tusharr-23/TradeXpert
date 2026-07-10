@@ -30,5 +30,5 @@ createRoot(document.getElementById("root")).render(
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
     <Footer />
-  </BrowserRouter>
+  </BrowserRouter>,
 );

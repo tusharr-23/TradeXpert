@@ -4,64 +4,71 @@ function Universe() {
   return (
     <div className="container mt-5">
       <div className="row text-center">
-        <h2 className="p-1">The Zerodha Universe</h2>
+        <h2 className="p-1">The TradeXpert Universe</h2>
         <p className="mb-4 p-3">
           Extend your trading and investment experience even further with our
           partner platforms
         </p>
 
         <div className="col-4 p-3">
-          <img src="media/images/smallcaseLogo.png" alt="" />
+          <img
+            src="media/images/smallcaseLogo.png"
+            alt="Smallcase"
+            className="img-responsive"
+            style={{ maxWidth: "120px" }}
+          />
           <p className="text-small text-muted">Thematic investment platform</p>
         </div>
         <div className="col-4 p-3">
           <img
             src="media/images/streakLogo.png"
-            alt=""
-            style={{ width: "45%" }}
+            alt="Streak"
+            className="img-responsive"
+            style={{ maxWidth: "120px" }}
           />
-          <p className="text-small text-muted">Algo & strtegy platform</p>
+          <p className="text-small text-muted">Algo & strategy platform</p>
         </div>
         <div className="col-4 p-3">
           <img
             src="media/images/sensibullLogo.svg"
-            alt=""
-            style={{ width: "65%" }}
+            alt="Sensibull"
+            className="img-responsive"
+            style={{ maxWidth: "120px" }}
           />
           <p className="text-small text-muted mt-2">Option trading platform</p>
         </div>
 
         <div className="col-4 p-3">
           <img
-            src="media/images/zerodhaFundhouse.png"
-            alt=""
-            style={{ width: "55%" }}
+            src="media/images/tradexpertFundhouse.png"
+            alt="TradeXpert Fundhouse"
+            className="img-responsive"
+            style={{ maxWidth: "120px" }}
           />
           <p className="text-small text-muted mt-1">Asset Management</p>
         </div>
         <div className="col-4 p-3">
           <img
             src="media/images/goldenpiLogo.png"
-            alt=""
-            style={{ width: "50%" }}
+            alt="GoldenPi"
+            className="img-responsive"
+            style={{ maxWidth: "120px" }}
           />
           <p className="text-small text-muted mt-1">Bonds trading platform</p>
         </div>
         <div className="col-4 p-3">
           <img
             src="media/images/dittoLogo.png"
-            alt=""
-            style={{ width: "37%" }}
+            alt="Ditto"
+            className="img-responsive"
+            style={{ maxWidth: "120px" }}
           />
           <p className="text-small text-muted mt-2">Health insurance</p>
         </div>
 
-        <button
-          className="p-1.75 btn btn-primary fs-5 mb-5 mt-5"
-          style={{ width: "20%", margin: "0 auto" }}
-        >
-          Sign up Now
-        </button>
+        <div className="flex-center mb-5 mt-5" style={{ minHeight: "60px" }}>
+          <button className="btn btn-primary">Sign up Now</button>
+        </div>
       </div>
     </div>
   );
