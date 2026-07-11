@@ -67,8 +67,8 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className={isActive("/")} to="/">
-                <i className="fa-solid fa-bars"></i>
+              <Link className={isActive("/dashboard")} to="/dashboard">
+                Dashboard
               </Link>
             </li>
           </ul>

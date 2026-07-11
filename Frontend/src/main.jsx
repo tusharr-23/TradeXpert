@@ -16,6 +16,8 @@ import Navbar from "./landing_page/Navbar";
 import Footer from "./landing_page/Footer";
 import NotFound from "./landing_page/NotFound";
 
+import Dashboard from "./Dashboard/Components/Dashboard";
+
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Navbar />
@@ -27,6 +29,7 @@ createRoot(document.getElementById("root")).render(
       <Route path="/product" element={<ProductPage />}></Route>
       <Route path="/pricing" element={<PricingPage />}></Route>
       <Route path="/support" element={<SupportPage />}></Route>
+      <Route path="/dashboard" element={<Dashboard />}></Route>
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
     <Footer />
