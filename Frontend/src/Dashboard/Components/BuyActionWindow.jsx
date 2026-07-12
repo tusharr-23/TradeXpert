@@ -5,7 +5,7 @@ import axios from "axios";
 
 import GeneralContext from "./GeneralContext";
 
-import "./BuyActionWindow.css";
+import "../OrderWindow.css";
 
 const BuyActionWindow = ({ stock }) => {
   if (!stock) {
@@ -40,7 +40,7 @@ const BuyActionWindow = ({ stock }) => {
   };
 
   return (
-    <div className="container" id="buy-window" draggable="true">
+    <div className="order-window-container" id="buy-window" draggable="true">
       <div className="regular-order">
         <div className="inputs">
           <fieldset>
@@ -67,13 +67,17 @@ const BuyActionWindow = ({ stock }) => {
         </div>
       </div>
 
-      <div className="buttons">
+      <div className="order-window-buttons">
         <span>Margin required ₹{(stockQuantity * stockPrice).toFixed(2)}</span>
         <div>
-          <Link className="btn btn-blue" onClick={handleBuyClick}>
+          <Link className="order-window-btn btn-blue" onClick={handleBuyClick}>
             Buy
           </Link>
-          <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
+          <Link
+            to=""
+            className="order-window-btn btn-grey"
+            onClick={handleCancelClick}
+          >
             Cancel
           </Link>
         </div>
