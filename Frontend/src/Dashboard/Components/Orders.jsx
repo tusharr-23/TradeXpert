@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import axios from "axios";
+import api from "../../api/axios";
 
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -13,11 +13,11 @@ const Orders = () => {
 
   useEffect(() => {
     console.log("fetching orders...");
-    axios
-      .get("http://localhost:3002/allOrders")
+    api
+      .get("/allOrders")
       .then((res) => {
         // console.log(res.data);
-        setAllOrders(res.data);
+        setAllOrders(res.data.orders);
       })
       .catch((err) => {
         console.log(err);

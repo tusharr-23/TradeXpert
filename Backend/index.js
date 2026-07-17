@@ -20,6 +20,9 @@ const { WatchListModel } = require("./models/WatchListModel");
 //ROUTES
 const authRoute = require("./routes/AuthRoute");
 
+//MIDDLEWARE
+const { verifyUser } = require("./middlewares/AuthMiddleware");
+
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 
@@ -213,9 +216,9 @@ app.get("/allWatchlist", async (req, res) => {
 //   let allHoldings = await HoldingsModel.find({});
 //   res.json(allHoldings);
 // });
-app.get("/allHoldings", async (req, res) => {
+app.get("/allHoldings", verifyUser, async (req, res) => {
   try {
-    const allHoldings = await HoldingsModel.find({});
+    const allHoldings = await HoldingsModel.find({ user: req.user._id });
 
     const holdingsData = await Promise.all(
       allHoldings.map(async (holding) => {
@@ -257,10 +260,14 @@ app.get("/allHoldings", async (req, res) => {
       }),
     );
 
-    res.json(holdingsData.filter(Boolean));
+    res.status(200).json({
+      success: true,
+      holdings: holdingsData.filter(Boolean),
+    });
   } catch (err) {
-    console.log(err);
+    // console.log(err);
     res.status(500).json({
+      success: false,
       message: "Unable to fetch holdings",
     });
   }
@@ -274,22 +281,120 @@ app.get("/allPositions", async (req, res) => {
 
 //Place new order
 // app.post("/newOrder", async (req, res) => {
-//   let newOrder = new OrdersModel({
-//     symbol: req.body.symbol,
-//     name: req.body.name,
-//     qty: req.body.qty,
-//     price: req.body.price,
-//     mode: req.body.mode,
-//   });
-//   newOrder.save();
-//   res.send("Order saved");
+//   try {
+//     const { symbol, name, qty, price, mode } = req.body;
+
+//     // ---------------- Save Order ----------------
+//     const newOrder = new OrdersModel({
+//       user: req.user._id,
+//       symbol,
+//       name,
+//       qty,
+//       price,
+//       mode,
+//     });
+
+//     await newOrder.save();
+
+//     // ---------------- BUY ----------------
+//     if (mode === "BUY") {
+//       let holding = await HoldingsModel.findOne({ symbol });
+
+//       if (holding) {
+//         const totalQty = holding.qty + qty;
+
+//         const newAvg = (holding.avg * holding.qty + price * qty) / totalQty;
+
+//         holding.qty = totalQty;
+//         holding.avg = Number(newAvg.toFixed(2));
+
+//         await holding.save();
+//       } else {
+//         holding = new HoldingsModel({
+//           symbol,
+//           name,
+//           qty,
+//           avg: price,
+//         });
+
+//         await holding.save();
+//       }
+//     }
+
+//     // ---------------- SELL ----------------
+//     else if (mode === "SELL") {
+//       const holding = await HoldingsModel.findOne({ symbol });
+
+//       if (!holding) {
+//         return res.status(404).json({
+//           message: "You don't own this stock.",
+//         });
+//       }
+
+//       if (holding.qty < qty) {
+//         return res.status(400).json({
+//           message: "Not enough shares to sell.",
+//         });
+//       }
+
+//       holding.qty -= qty;
+
+//       if (holding.qty === 0) {
+//         await HoldingsModel.deleteOne({ symbol });
+//       } else {
+//         await holding.save();
+//       }
+//     }
+
+//     res.status(200).json({
+//       success: true,
+//       message: "Order placed successfully",
+//     });
+//   } catch (err) {
+//     console.log(err);
+
+//     res.status(500).json({
+//       success: false,
+//       message: "Something went wrong",
+//     });
+//   }
 // });
-app.post("/newOrder", async (req, res) => {
+app.post("/newOrder", verifyUser, async (req, res) => {
   try {
     const { symbol, name, qty, price, mode } = req.body;
 
+    // ---------------- Validation ----------------
+    if (!symbol || !name || !qty || !price || !mode) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required.",
+      });
+    }
+
+    if (!["BUY", "SELL"].includes(mode)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid order type.",
+      });
+    }
+
+    if (qty <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Quantity must be greater than 0.",
+      });
+    }
+
+    if (price <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Price must be greater than 0.",
+      });
+    }
+
     // ---------------- Save Order ----------------
     const newOrder = new OrdersModel({
+      user: req.user._id,
       symbol,
       name,
       qty,
@@ -301,7 +406,10 @@ app.post("/newOrder", async (req, res) => {
 
     // ---------------- BUY ----------------
     if (mode === "BUY") {
-      let holding = await HoldingsModel.findOne({ symbol });
+      let holding = await HoldingsModel.findOne({
+        user: req.user._id,
+        symbol,
+      });
 
       if (holding) {
         const totalQty = holding.qty + qty;
@@ -314,6 +422,7 @@ app.post("/newOrder", async (req, res) => {
         await holding.save();
       } else {
         holding = new HoldingsModel({
+          user: req.user._id,
           symbol,
           name,
           qty,
@@ -326,16 +435,21 @@ app.post("/newOrder", async (req, res) => {
 
     // ---------------- SELL ----------------
     else if (mode === "SELL") {
-      const holding = await HoldingsModel.findOne({ symbol });
+      const holding = await HoldingsModel.findOne({
+        user: req.user._id,
+        symbol,
+      });
 
       if (!holding) {
         return res.status(404).json({
+          success: false,
           message: "You don't own this stock.",
         });
       }
 
       if (holding.qty < qty) {
         return res.status(400).json({
+          success: false,
           message: "Not enough shares to sell.",
         });
       }
@@ -343,30 +457,52 @@ app.post("/newOrder", async (req, res) => {
       holding.qty -= qty;
 
       if (holding.qty === 0) {
-        await HoldingsModel.deleteOne({ symbol });
+        await HoldingsModel.deleteOne({
+          user: req.user._id,
+          symbol,
+        });
       } else {
         await holding.save();
       }
     }
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
-      message: "Order placed successfully",
+      message: "Order placed successfully.",
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
 
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
-      message: "Something went wrong",
+      message: "Internal Server Error.",
     });
   }
 });
 
 //Show all orders
-app.get("/allOrders", async (req, res) => {
-  let allOrders = await OrdersModel.find({});
-  res.json(allOrders);
+// app.get("/allOrders", async (req, res) => {
+//   let allOrders = await OrdersModel.find({ user: req.user._id });
+//   res.json(allOrders);
+// });
+app.get("/allOrders", verifyUser, async (req, res) => {
+  try {
+    const allOrders = await OrdersModel.find({
+      user: req.user._id,
+    }).sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      orders: allOrders,
+    });
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({
+      success: false,
+      message: "Unable to fetch orders.",
+    });
+  }
 });
 
 //Signup

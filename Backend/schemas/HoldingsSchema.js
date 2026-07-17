@@ -7,10 +7,10 @@ const HoldingsSchema = new Schema({
     required: true,
     index: true,
   },
+
   symbol: {
     type: String,
     required: true,
-    unique: true,
   },
 
   name: {
@@ -28,5 +28,9 @@ const HoldingsSchema = new Schema({
     required: true,
   },
 });
+
+// One user can have only one holding for a symbol,
+// but different users can have the same symbol.
+HoldingsSchema.index({ user: 1, symbol: 1 }, { unique: true });
 
 module.exports = { HoldingsSchema };

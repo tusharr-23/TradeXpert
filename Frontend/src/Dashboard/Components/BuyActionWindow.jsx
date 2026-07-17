@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import axios from "axios";
+import api from "../../api/axios";
 
 import GeneralContext from "./GeneralContext";
 
@@ -17,8 +17,8 @@ const BuyActionWindow = ({ stock }) => {
   const generalContext = useContext(GeneralContext);
 
   const handleBuyClick = () => {
-    axios
-      .post("http://localhost:3002/newOrder", {
+    api
+      .post("/newOrder", {
         symbol: stock.symbol,
         name: stock.name,
         qty: stockQuantity,
