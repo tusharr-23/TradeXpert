@@ -1,203 +1,141 @@
-// import React, { useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-// import axios from "axios";
-// import { ToastContainer, toast } from "react-toastify";
-
-// const Signup = () => {
-//   const navigate = useNavigate();
-//   const [inputValue, setInputValue] = useState({
-//     email: "",
-//     password: "",
-//     username: "",
-//   });
-//   const { email, password, username } = inputValue;
-//   const handleOnChange = (e) => {
-//     const { name, value } = e.target;
-//     setInputValue({
-//       ...inputValue,
-//       [name]: value,
-//     });
-//   };
-
-//   const handleError = (err) =>
-//     toast.error(err, {
-//       position: "bottom-left",
-//     });
-//   const handleSuccess = (msg) =>
-//     toast.success(msg, {
-//       position: "bottom-right",
-//     });
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const { data } = await axios.post(
-//         "http://localhost:3002/signup",
-//         {
-//           ...inputValue,
-//         },
-//         { withCredentials: true }
-//       );
-//       const { success, message } = data;
-//       if (success) {
-//         handleSuccess(message);
-//         setTimeout(() => {
-//           navigate("/");
-//         }, 1000);
-//       } else {
-//         handleError(message);
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//     setInputValue({
-//       ...inputValue,
-//       email: "",
-//       password: "",
-//       username: "",
-//     });
-//   };
-
-//   return (
-//     <div className="form_container">
-//       <h2>Signup Account</h2>
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <label htmlFor="email">Email</label>
-//           <input
-//             type="email"
-//             name="email"
-//             value={email}
-//             placeholder="Enter your email"
-//             onChange={handleOnChange}
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor="email">Username</label>
-//           <input
-//             type="text"
-//             name="username"
-//             value={username}
-//             placeholder="Enter your username"
-//             onChange={handleOnChange}
-//           />
-//         </div>
-//         <div>
-//           <label htmlFor="password">Password</label>
-//           <input
-//             type="password"
-//             name="password"
-//             value={password}
-//             placeholder="Enter your password"
-//             onChange={handleOnChange}
-//           />
-//         </div>
-//         <button type="submit">Submit</button>
-//         <span>
-//           Already have an account? <Link to={"/login"}>Login</Link>
-//         </span>
-//       </form>
-//       <ToastContainer />
-//     </div>
-//   );
-// };
-
-// export default Signup;
-
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useAuth } from "../../context/AuthContext";
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const { signup } = useAuth();
+
+  const from = location.state?.from?.pathname || "/";
+
+  const [loading, setLoading] = useState(false);
+
   const [inputValue, setInputValue] = useState({
+    name: "",
     email: "",
-    password: "",
     username: "",
+    password: "",
   });
-  const { email, password, username } = inputValue;
+
+  const { name, email, username, password } = inputValue;
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    setInputValue({
-      ...inputValue,
+
+    setInputValue((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
   };
-
-  const handleError = (err) => toast.error(err, { position: "bottom-left" });
-
-  const handleSuccess = (msg) =>
-    toast.success(msg, { position: "bottom-right" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const { data } = await axios.post(
-        "http://localhost:5174/signup", // backend API
-        { ...inputValue },
-        { withCredentials: true }
-      );
 
-      const { success, message } = data;
-
-      if (success) {
-        handleSuccess(message);
-        setTimeout(() => {
-          // ✅ Redirect to dashboard app
-          window.location.href = "http://localhost:5174/home";
-        }, 1000);
-      } else {
-        handleError(message);
-      }
-    } catch (error) {
-      console.log(error);
-      handleError("Something went wrong. Please try again.");
+    if (!name || !email || !username || !password) {
+      return toast.error("All fields are required.");
     }
 
-    setInputValue({ email: "", password: "", username: "" });
+    try {
+      setLoading(true);
+
+      const data = await signup(inputValue);
+
+      if (data.success) {
+        toast.success(data.message);
+
+        setInputValue({
+          name: "",
+          email: "",
+          username: "",
+          password: "",
+        });
+
+        setTimeout(() => {
+          navigate(from, { replace: true });
+        }, 1000);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="form_container">
-      <h2>Signup Account</h2>
+      <h2>Create Account</h2>
+
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">Email</label>
+          <label>Name</label>
+
+          <input
+            type="text"
+            name="name"
+            value={name}
+            placeholder="Enter your full name"
+            onChange={handleOnChange}
+            autoComplete="name"
+            required
+          />
+        </div>
+
+        <div>
+          <label>Email</label>
+
           <input
             type="email"
             name="email"
             value={email}
             placeholder="Enter your email"
             onChange={handleOnChange}
+            autoComplete="email"
+            required
           />
         </div>
+
         <div>
-          <label htmlFor="username">Username</label>
+          <label>Username</label>
+
           <input
             type="text"
             name="username"
             value={username}
-            placeholder="Enter your username"
+            placeholder="Choose a username"
             onChange={handleOnChange}
+            autoComplete="username"
+            required
           />
         </div>
+
         <div>
-          <label htmlFor="password">Password</label>
+          <label>Password</label>
+
           <input
             type="password"
             name="password"
             value={password}
             placeholder="Enter your password"
             onChange={handleOnChange}
+            autoComplete="new-password"
+            required
+            minLength={8}
           />
         </div>
-        <button type="submit">Submit</button>
+
+        <button type="submit" disabled={loading}>
+          {loading ? "Creating Account..." : "Signup"}
+        </button>
+
         <span>
-          Already have an account? <Link to={"/login"}>Login</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </span>
       </form>
-      <ToastContainer />
     </div>
   );
 };
