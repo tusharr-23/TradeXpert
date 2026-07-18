@@ -12,7 +12,7 @@ const Orders = () => {
   // console.log("ordersRefresh =", ordersRefresh);
 
   useEffect(() => {
-    console.log("fetching orders...");
+    // console.log("fetching orders...");
     api
       .get("/allOrders")
       .then((res) => {

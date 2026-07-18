@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
+import { toast } from "react-toastify";
+
 import api from "../../api/axios";
 
 import GeneralContext from "./GeneralContext";
@@ -25,8 +27,9 @@ const SellActionWindow = ({ stock }) => {
         price: stockPrice,
         mode: "SELL",
       })
-      .then(() => {
+      .then((res) => {
         // console.log("Calling refreshOrders...");
+        toast.success(res.data.message);
         generalContext.refreshOrders();
         generalContext.closeSellWindow();
       })
