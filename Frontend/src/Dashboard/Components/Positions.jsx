@@ -5,13 +5,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Positions = () => {
-  const [allPositions, setAllPositions] = useState([]);
+  // const [allPositions, setAllPositions] = useState([]);
 
-  useEffect((res) => {
-    axios.get("http://localhost:3002/allPositions").then((res) => {
-      setAllPositions(res.data);
-    });
-  }, []);
+  // useEffect((res) => {
+  //   axios.get("http://localhost:3002/allPositions").then((res) => {
+  //     setAllPositions(res.data);
+  //   });
+  // }, []);
 
   return (
     <>
@@ -30,7 +30,7 @@ const Positions = () => {
               <th>Chg.</th>
             </tr>
           </thead>
-          <tbody>
+          {/* <tbody>
             {allPositions.map((stock, index) => {
               const currVal = stock.price * stock.qty;
               const isProfit = currVal - stock.avg * stock.qty >= 0.0;
@@ -51,7 +51,7 @@ const Positions = () => {
                 </tr>
               );
             })}
-          </tbody>
+          </tbody> */}
         </table>
       </div>
     </>

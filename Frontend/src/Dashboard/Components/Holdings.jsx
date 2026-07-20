@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import api from "../../api/axios";
 
+import { showError } from "../../utils/toast";
+
 import { VerticalGraph } from "./VerticalGraph";
 
 const Holdings = () => {
@@ -14,6 +16,7 @@ const Holdings = () => {
         setAllHoldings(res.data.holdings);
       })
       .catch((err) => {
+        showError(err.response?.data?.message || "Something went wrong.");
         console.log(err);
       });
   }, []);

@@ -6,16 +6,4 @@ const api = axios.create({
   withCredentials: true,
 });
 
-//Showing toast notification for error responses
-api.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    toast.error(error.response?.data?.message || "Something went wrong", {
-      position: "bottom-right",
-    });
-
-    return Promise.reject(error);
-  },
-);
-
 export default api;

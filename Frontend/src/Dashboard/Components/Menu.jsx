@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { useAuth } from "../../context/AuthContext";
+
 const Menu = () => {
+  const { user } = useAuth();
   const [selectedMenu, setSelectedMenu] = useState(0);
 
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
@@ -19,7 +22,14 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <img src="logo.png" style={{ width: "3.75%" }} />
+      {/* <img src="logo.png" style={{ width: "3.75%" }} /> */}
+      <Link className="navbar-brand" to="/">
+        <img
+          src="/media/images/TradeXpert.svg"
+          alt="TradeXpert logo"
+          style={{ maxWidth: "150px", height: "auto" }}
+        />
+      </Link>
       <div className="menus">
         <ul>
           <li>
@@ -77,22 +87,13 @@ const Menu = () => {
               </p>{" "}
             </Link>
           </li>
-          <li>
-            <Link
-              style={{ textDecoration: "none" }}
-              to="/dashboard/apps"
-              onClick={() => handleMenuClick(5)}
-            >
-              <p className={selectedMenu === 5 ? activeMenuClass : menuClass}>
-                Apps
-              </p>{" "}
-            </Link>
-          </li>
         </ul>
         <hr />
         <div className="profile" onClick={handleProfileClick}>
-          <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+          <div className="avatar">
+            {user?.name?.charAt(0).toUpperCase() || "U"}
+          </div>
+          <p className="username">{user?.name || "Guest"}</p>
         </div>
       </div>
     </div>

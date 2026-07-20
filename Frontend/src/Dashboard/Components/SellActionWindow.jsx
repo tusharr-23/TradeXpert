@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { toast } from "react-toastify";
+import { showSuccess, showError } from "../../utils/toast";
 
 import api from "../../api/axios";
 
@@ -29,11 +29,12 @@ const SellActionWindow = ({ stock }) => {
       })
       .then((res) => {
         // console.log("Calling refreshOrders...");
-        toast.success(res.data.message);
+        showSuccess(res.data.message);
         generalContext.refreshOrders();
         generalContext.closeSellWindow();
       })
       .catch((err) => {
+        showError(err.response?.data?.message || "Something went wrong.");
         console.log(err);
       });
   };

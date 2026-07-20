@@ -26,20 +26,6 @@ module.exports.createOrder = async (req, res) => {
     const { symbol, name, qty, price, mode } = req.body;
 
     // ---------------- Validation ----------------
-    if (!symbol || !name || !qty || !price || !mode) {
-      return res.status(400).json({
-        success: false,
-        message: "All fields are required.",
-      });
-    }
-
-    if (!["BUY", "SELL"].includes(mode)) {
-      return res.status(400).json({
-        success: false,
-        message: "Invalid order type.",
-      });
-    }
-
     if (qty <= 0) {
       return res.status(400).json({
         success: false,
@@ -51,6 +37,20 @@ module.exports.createOrder = async (req, res) => {
       return res.status(400).json({
         success: false,
         message: "Price must be greater than 0.",
+      });
+    }
+
+    if (!symbol || !name || !qty || !price || !mode) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required.",
+      });
+    }
+
+    if (!["BUY", "SELL"].includes(mode)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid order type.",
       });
     }
 

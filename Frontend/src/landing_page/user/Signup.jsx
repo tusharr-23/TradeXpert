@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
+import { showSuccess, showError } from "../../utils/toast";
 import { useAuth } from "../../context/AuthContext";
 
 const Signup = () => {
@@ -35,7 +35,8 @@ const Signup = () => {
     e.preventDefault();
 
     if (!name || !email || !username || !password) {
-      return toast.error("All fields are required.");
+      showError("All fields are required.");
+      return;
     }
 
     try {
@@ -44,7 +45,7 @@ const Signup = () => {
       const data = await signup(inputValue);
 
       if (data.success) {
-        toast.success(data.message);
+        showSuccess(data.message);
 
         setInputValue({
           name: "",
@@ -57,10 +58,10 @@ const Signup = () => {
           navigate(from, { replace: true });
         }, 1000);
       } else {
-        toast.error(data.message);
+        showError(data.message);
       }
     } catch (err) {
-      toast.error(err.response?.data?.message || "Something went wrong.");
+      showError(err.response?.data?.message || "Something went wrong.");
     } finally {
       setLoading(false);
     }

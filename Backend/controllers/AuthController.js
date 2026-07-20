@@ -52,7 +52,7 @@ module.exports.Signup = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "User Signup successfully",
+      message: "User signed up successfully",
       user: {
         id: user._id,
         name: user.name,
@@ -115,7 +115,7 @@ module.exports.Login = async (req, res) => {
     // Success response
     return res.status(200).json({
       success: true,
-      message: "User Logged in successfully",
+      message: "User logged in successfully",
       user: {
         _id: user._id,
         name: user.name,
@@ -151,6 +151,6 @@ module.exports.Logout = (req, res) => {
 
   res.status(200).json({
     success: true,
-    message: "Logout successful",
+    message: "user logged out successfully",
   });
 };

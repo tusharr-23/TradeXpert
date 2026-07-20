@@ -289,7 +289,7 @@
 }
 .menu.selected {
   color: #fff;
-  background: rgba(65, 132, 243, 0.14);
+  background: rgba(65, 132, 243, 0.38);
 }
 hr {
   border: none;

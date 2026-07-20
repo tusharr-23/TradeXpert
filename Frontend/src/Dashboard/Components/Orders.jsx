@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import api from "../../api/axios";
 
+import { showError } from "../../utils/toast";
+
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import GeneralContext from "./GeneralContext";
@@ -20,6 +22,7 @@ const Orders = () => {
         setAllOrders(res.data.orders);
       })
       .catch((err) => {
+        showError(err.response?.data?.message || "Something went wrong.");
         console.log(err);
       });
   }, [ordersRefresh]);

@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 
+import { showError } from "../../utils/toast";
+
 // import { Tooltip } from "@mui/icons-material";
 import { Tooltip, Grow } from "@mui/material";
 import {
@@ -25,6 +27,7 @@ function WatchList() {
         setStockWatchlist(res.data);
       })
       .catch((err) => {
+        showError(err.response?.data?.message || "Something went wrong.");
         console.log(err);
       });
   }, []);

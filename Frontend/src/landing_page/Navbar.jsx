@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { toast } from "react-toastify";
+import { showSuccess, showError } from "../utils/toast";
 
 function Navbar() {
   const location = useLocation();
@@ -24,11 +24,11 @@ function Navbar() {
       const data = await logout();
 
       if (data.success) {
-        toast.success(data.message);
+        showSuccess(data.message);
         navigate("/");
       }
     } catch (err) {
-      toast.error("Logout failed.");
+      showError("Logout failed.");
     }
   };
 
@@ -40,7 +40,7 @@ function Navbar() {
       <div className="container p-2">
         <Link className="navbar-brand" to="/">
           <img
-            src="/media/images/logo.svg"
+            src="/media/images/TradeXpert.svg"
             alt="TradeXpert logo"
             style={{ maxWidth: "150px", height: "auto" }}
           />

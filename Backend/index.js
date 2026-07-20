@@ -8,9 +8,6 @@ const cors = require("cors");
 
 const cookieParser = require("cookie-parser");
 
-//MODELS
-const { PositionsModel } = require("./models/PositionsModel");
-
 //ROUTES
 const authRoute = require("./routes/AuthRoute");
 const holdingsRoute = require("./routes/HoldingRoute");
@@ -49,12 +46,6 @@ app.use("/", ordersRoute);
 
 //Show All Holdings
 app.use("/", holdingsRoute);
-
-//Show All Positions
-app.get("/allPositions", async (req, res) => {
-  let allPositions = await PositionsModel.find({});
-  res.json(allPositions);
-});
 
 app.get("/", (req, res) => {
   res.send("working on port 3002");
