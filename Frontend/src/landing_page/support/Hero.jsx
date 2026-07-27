@@ -4,40 +4,35 @@ function Hero() {
   return (
     <section className="container-fluid" id="supportHero">
       <div id="supportWrapper">
-        <h5 className="mt-4">Support Portal</h5>
-        <a href="#" className="mt-2 p-3">
-          Track tickets
-        </a>
+        <h4 className="mt-4">Need Help?</h4>
+
+        <p className="mt-3" style={{ color: "white", maxWidth: "700px" }}>
+          TradeXpert is a stock trading simulator developed using the MERN
+          stack. If you'd like to understand how the project works or explore
+          its features, you'll find everything below.
+        </p>
       </div>
+
       <div className="row p-4" id="supportCont">
-        <div className="col-6 p-2 mb-4">
-          <h5 className="mb-4">
-            Search for an answer or browse help topics to create a ticket
-          </h5>
-          <input
-            className="mb-4"
-            type="text"
-            placeholder="Eg. how do I activate F&O..."
-          />
-          <br />
-          <a href="#">Track account opening </a>
-          <a href="#" style={{ paddingLeft: "var(--spacing-md)" }}>
-            Track segment activation
-          </a>
-          <a href="#" style={{ paddingLeft: "var(--spacing-md)" }}>
-            Intraday margins
-          </a>
-          <br />
-          <a href="#" style={{ paddingTop: "var(--spacing-md)" }}>
-            Kite user manual
-          </a>
+        <div className="col-lg-7 p-3 mb-4">
+          <h5 className="mb-4">What can you do with TradeXpert?</h5>
+
+          <ul style={{ lineHeight: "2", color: "white" }}>
+            <li>Create your own account securely.</li>
+            <li>Buy and sell stocks in a virtual environment.</li>
+            <li>View real-time market prices.</li>
+            <li>Track holdings and order history.</li>
+            <li>Manage your portfolio through an intuitive dashboard.</li>
+          </ul>
         </div>
-        <div className="col-6 p-5">
-          <h5>Featured</h5>
-          <p>
-            Users will not be able to add funds to the equity segment from 8 PM
-            to 12 AM due to the upcoming quarterly settlement.{" "}
-            <a href="#">Read more.</a>
+
+        <div className="col-lg-5 p-4">
+          <h5>Project Overview</h5>
+
+          <p style={{ color: "white", lineHeight: "1.8" }}>
+            This project demonstrates JWT authentication, protected routes,
+            RESTful APIs, MongoDB integration, and real-time stock market data
+            using the Yahoo Finance API.
           </p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { showSuccess, showError } from "../utils/toast";
@@ -6,8 +6,15 @@ import { showSuccess, showError } from "../utils/toast";
 function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
+  const navbarCollapseRef = useRef(null);
 
   const { isAuthenticated, logout } = useAuth();
+
+  const closeNavbar = () => {
+    if (window.innerWidth < 992 && navbarCollapseRef.current) {
+      navbarCollapseRef.current.classList.remove("show");
+    }
+  };
 
   const isActive = (path) => {
     if (path === "/dashboard") {
@@ -42,7 +49,7 @@ function Navbar() {
           <img
             src="/media/images/TradeXpert.svg"
             alt="TradeXpert logo"
-            style={{ maxWidth: "150px", height: "auto" }}
+            style={{ maxWidth: "125px", height: "auto" }}
           />
         </Link>
 
@@ -58,40 +65,57 @@ function Navbar() {
         <div
           className="collapse navbar-collapse justify-content-end"
           id="navbarSupportedContent"
+          ref={navbarCollapseRef}
         >
           <ul className="navbar-nav mb-2 mb-lg-0 align-items-center">
             <li className="nav-item">
-              <Link className={isActive("/")} to="/">
+              <Link className={isActive("/")} to="/" onClick={closeNavbar}>
                 Home
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className={isActive("/about")} to="/about">
+              <Link
+                className={isActive("/about")}
+                to="/about"
+                onClick={closeNavbar}
+              >
                 About
               </Link>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className={isActive("/product")} to="/product">
                 Product
               </Link>
-            </li>
+            </li> */}
 
             <li className="nav-item">
-              <Link className={isActive("/pricing")} to="/pricing">
+              <Link
+                className={isActive("/pricing")}
+                to="/pricing"
+                onClick={closeNavbar}
+              >
                 Pricing
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className={isActive("/support")} to="/support">
+              <Link
+                className={isActive("/support")}
+                to="/support"
+                onClick={closeNavbar}
+              >
                 Support
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className={isActive("/dashboard")} to="/dashboard">
+              <Link
+                className={isActive("/dashboard")}
+                to="/dashboard"
+                onClick={closeNavbar}
+              >
                 Dashboard
               </Link>
             </li>
@@ -99,13 +123,21 @@ function Navbar() {
             {!isAuthenticated ? (
               <>
                 <li className="nav-item">
-                  <Link className={isActive("/login")} to="/login">
+                  <Link
+                    className={isActive("/login")}
+                    to="/login"
+                    onClick={closeNavbar}
+                  >
                     Login
                   </Link>
                 </li>
 
                 <li className="nav-item">
-                  <Link className={isActive("/signup")} to="/signup">
+                  <Link
+                    className={isActive("/signup")}
+                    to="/signup"
+                    onClick={closeNavbar}
+                  >
                     Signup
                   </Link>
                 </li>

@@ -3,147 +3,137 @@ import React from "react";
 function Footer() {
   return (
     <footer
-      className="border-top"
+      className="border-top py-5"
       style={{ backgroundColor: "var(--bg-secondary)" }}
     >
-      <div className="container mt-5">
-        <div className="row mt-5">
-          <div className="col mb-4 mb-md-0">
+      <div className="container">
+        <div className="row gy-4">
+          {/* Logo & About */}
+          <div className="col-12 col-md-6 col-lg-4">
             <img
-              src="media/images/logo.svg"
+              src="media/images/TradeXpert.svg"
               alt="TradeXpert logo"
-              style={{ maxWidth: "150px", height: "auto" }}
+              style={{ maxWidth: "125px", height: "auto" }}
             />
+
             <p
-              style={{
-                marginTop: "var(--spacing-md)",
-                fontSize: "var(--font-size-sm)",
-              }}
+              className="text-muted mt-3 mb-2"
+              style={{ fontSize: "0.95rem", lineHeight: "1.7" }}
             >
-              © 2010 - 2025, TradeXpert Broking Ltd. All rights reserved.
+              A MERN-based stock trading simulator built to demonstrate
+              full-stack development, secure authentication, and portfolio
+              management.
             </p>
+
+            <small className="text-muted">
+              © {new Date().getFullYear()} TradeXpert
+            </small>
           </div>
 
-          <div className="col mb-4 mb-md-0">
-            <p className="footer-heading">Company</p>
-            <a href="#" className="footer-link">
+          {/* Navigation */}
+          <div className="col-6 col-md-3 col-lg-2">
+            <h6 className="fw-bold mb-3">Navigation</h6>
+
+            <a href="/" className="footer-link d-block mb-2">
+              Home
+            </a>
+
+            <a href="/about" className="footer-link d-block mb-2">
               About
             </a>
-            <a href="#" className="footer-link">
-              Products
+
+            <a href="/product" className="footer-link d-block mb-2">
+              Product
             </a>
-            <a href="#" className="footer-link">
-              Pricing
-            </a>
-            <a href="#" className="footer-link">
-              Referral programme
-            </a>
-            <a href="#" className="footer-link">
-              Careers
-            </a>
-            <a href="#" className="footer-link">
-              TradeXpert.tech
-            </a>
-            <a href="#" className="footer-link">
-              Open source
-            </a>
-            <a href="#" className="footer-link">
-              Press & media
-            </a>
-            <a href="#" className="footer-link">
-              TradeXpert Cares (CSR)
+
+            <a href="/support" className="footer-link d-block">
+              Support
             </a>
           </div>
 
-          <div className="col mb-4 mb-md-0">
-            <p className="footer-heading">Support</p>
-            <a href="#" className="footer-link">
-              Contact us
+          {/* Resources */}
+          <div className="col-6 col-md-3 col-lg-3">
+            <h6 className="fw-bold mb-3">Resources</h6>
+
+            <a
+              href="https://github.com/your-username/tradexpert"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link d-block mb-2"
+            >
+              GitHub Repository
             </a>
-            <a href="#" className="footer-link">
-              Support portal
-            </a>
-            <a href="#" className="footer-link">
-              Z-Connect blog
-            </a>
-            <a href="#" className="footer-link">
-              List of charges
-            </a>
-            <a href="#" className="footer-link">
-              Downloads & resources
+
+            <a
+              href="https://your-portfolio-link.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link d-block"
+            >
+              Portfolio
             </a>
           </div>
 
-          <div className="col mb-4 mb-md-0">
-            <p className="footer-heading">Account</p>
-            <a href="#" className="footer-link">
-              Open an account
+          {/* Connect */}
+          <div className="col-12 col-lg-3">
+            <h6 className="fw-bold mb-3">Connect</h6>
+
+            <a
+              href="https://linkedin.com/in/ranatushar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link d-block mb-2"
+            >
+              <i className="fa-brands fa-linkedin me-2"></i>
+              LinkedIn
             </a>
-            <a href="#" className="footer-link">
-              Fund transfer
+
+            <a
+              href="mailto:tusharrana81081@gmail.com"
+              className="footer-link d-block mb-2"
+            >
+              <i className="fa-solid fa-envelope me-2"></i>
+              Email
             </a>
-            <a href="#" className="footer-link">
-              60 day challenge
+
+            <a
+              href="https://github.com/your-username/tradexpert"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link d-block"
+            >
+              <i className="fa-brands fa-github me-2"></i>
+              GitHub
             </a>
           </div>
         </div>
+
+        <hr className="my-1" />
+
+        {/* Disclaimer */}
         <div
-          className="mt-5 text-muted"
-          style={{ fontSize: "var(--font-size-xs)" }}
+          className="text-center text-muted"
+          style={{
+            fontSize: "0.9rem",
+            lineHeight: "1.8",
+            maxWidth: "900px",
+            margin: "0 auto",
+          }}
         >
-          <p>
-            TradeXpert Broking Ltd.: Member of NSE, BSE​ &​ MCX – SEBI
-            Registration no.: INZ000031633 CDSL/NSDL: Depository services
-            through TradeXpert Broking Ltd. – SEBI Registration no.:
-            IN-DP-431-2019 Commodity Trading through TradeXpert Commodities Pvt.
-            Ltd. MCX: 46025; NSE-50001 – SEBI Registration no.: INZ000038238
-            Registered Address: TradeXpert Broking Ltd., #153/154, 4th Cross,
-            Dollars Colony, Opp. Clarence Public School, J.P Nagar 4th Phase,
-            Bengaluru - 560078, Karnataka, India. For any complaints pertaining
-            to securities broking please write to complaints@tradexpert.com, for
-            DP related to dp@tradexpert.com. Please ensure you carefully read
-            the Risk Disclosure Document as prescribed by SEBI | ICF
+          <p className="mb-2">
+            <strong>TradeXpert</strong> is a personal portfolio project created
+            to showcase full-stack MERN development. It is intended for
+            educational and demonstration purposes only.
           </p>
 
-          <p>
-            Procedure to file a complaint on SEBI SCORES: Register on SCORES
-            portal. Mandatory details for filing complaints on SCORES: Name,
-            PAN, Address, Mobile Number, E-mail ID. Benefits: Effective
-            Communication, Speedy redressal of the grievances
+          <p className="mb-2">
+            This is <strong>not</strong> a registered brokerage or financial
+            services platform. No real trades are executed and no real funds are
+            handled.
           </p>
 
-          <p>
-            Investments in securities market are subject to market risks; read
-            all the related documents carefully before investing.
-          </p>
-
-          <p>
-            Attention investors: 1) Stock brokers can accept securities as
-            margins from clients only by way of pledge in the depository system
-            w.e.f September 01, 2020. 2) Update your e-mail and phone number
-            with your stock broker / depository participant and receive OTP
-            directly from depository on your e-mail and/or mobile number to
-            create pledge. 3) Check your securities / MF / bonds in the
-            consolidated account statement issued by NSDL/CDSL every month.
-          </p>
-
-          <p>
-            "Prevent unauthorised transactions in your account. Update your
-            mobile numbers/email IDs with your stock brokers. Receive
-            information of your transactions directly from Exchange on your
-            mobile/email at the end of the day. Issued in the interest of
-            investors. KYC is one time exercise while dealing in securities
-            markets - once KYC is done through a SEBI registered intermediary
-            (broker, DP, Mutual Fund etc.), you need not undergo the same
-            process again when you approach another intermediary." Dear
-            Investor, if you are subscribing to an IPO, there is no need to
-            issue a cheque. Please write the Bank account number and sign the
-            IPO application form to authorize your bank to make payment in case
-            of allotment. In case of non allotment the funds will remain in your
-            bank account. As a business we don't give stock tips, and have not
-            authorized anyone to trade on behalf of others. If you find anyone
-            claiming to be part of Zerodha and offering such services, please
-            create a ticket here.
+          <p className="mb-0">
+            Designed &amp; Developed by <strong>Tushar Rana</strong>.
           </p>
         </div>
       </div>

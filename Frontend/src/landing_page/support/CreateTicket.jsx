@@ -3,63 +3,61 @@ import React from "react";
 function CreateTicket() {
   return (
     <div className="container">
-      <div className="row p-4 mt-5 mb-3">
-        <h3 className="text-muted mb-4">
-          To create a ticket, select a relevant topic
-        </h3>
-        <div className="col-4 p-4 mt-3">
-          <h5>Account Opening</h5>
-          <a href="#">Resident individual</a>
-          <a href="#">Minor</a>
-          <a href="#">Non Resident Indian (NRI)</a>
-          <a href="#">Company, Partnership, HUF and LLP</a>
-          <a href="#">Glossary</a>
+      <div className="row p-4 mt-5 mb-5">
+        <h3 className="text-center mb-5">Explore TradeXpert Features</h3>
+
+        <div className="col-lg-4 p-4">
+          <h5>Authentication</h5>
+
+          <p className="text-muted">
+            Secure signup, login, JWT authentication, protected routes and
+            logout functionality.
+          </p>
         </div>
 
-        <div className="col-4 p-4 mt-3">
-          <h5>Your TradeXpert Account </h5>
-          <a href="#">Your Profile</a>
-          <a href="#">Account modification</a>
-          <a href="#">
-            Client Master Report (CMR) and Depository Participant (DP)
-          </a>
-          <a href="#">Nomination</a>
-          <a href="#">Transfer and conversion of securities</a>
+        <div className="col-lg-4 p-4">
+          <h5>Trading</h5>
+
+          <p className="text-muted">
+            Place virtual buy and sell orders while maintaining user-specific
+            holdings and order history.
+          </p>
         </div>
 
-        <div className="col-4 p-4 mt-3">
-          <h5>Kite</h5>
-          <a href="#">IPO</a>
-          <a href="#">Trading FAQs</a>
-          <a href="#">Margin Trading Facility (MTF) and Margins</a>
-          <a href="#">Charts and orders</a>
-          <a href="#">Alerts and Nudges</a>
+        <div className="col-lg-4 p-4">
+          <h5>Portfolio</h5>
+
+          <p className="text-muted">
+            View holdings, profit & loss, investment value and live stock prices
+            in one dashboard.
+          </p>
         </div>
 
-        <div className="col-4 p-4 mt-3 mb-3">
-          <h5>Funds</h5>
-          <a href="#">Add money</a>
-          <a href="#">Withdraw money</a>
-          <a href="#">Add bank accounts</a>
-          <a href="#">eMandates</a>
+        <div className="col-lg-4 p-4">
+          <h5>Market Data</h5>
+
+          <p className="text-muted">
+            Live stock prices and market movements are fetched using the Yahoo
+            Finance API.
+          </p>
         </div>
 
-        <div className="col-4 p-4 mt-3 mb-3">
-          <h5>Console</h5>
-          <a href="#">Portfolio</a>
-          <a href="#">Corporate actions</a>
-          <a href="#">Funds statement</a>
-          <a href="#">Reports</a>
-          <a href="#">Profile</a>
+        <div className="col-lg-4 p-4">
+          <h5>Technology Stack</h5>
+
+          <p className="text-muted">
+            React.js, Node.js, Express.js, MongoDB, JWT Authentication and
+            Material UI.
+          </p>
         </div>
 
-        <div className="col-4 p-4 mt-3 mb-3">
-          <h5>Coin</h5>
-          <a href="#">Understanding mutual funds and Coin</a>
-          <a href="#">Coin app</a>
-          <a href="#">Coin web</a>
-          <a href="#">Transactions and reports</a>
-          <a href="#">National Pension Scheme (NPS)</a>
+        <div className="col-lg-4 p-4">
+          <h5>Purpose</h5>
+
+          <p className="text-muted">
+            TradeXpert is an educational MERN project created to simulate the
+            workflow of a modern stock trading platform.
+          </p>
         </div>
       </div>
     </div>

@@ -235,8 +235,11 @@
   font-weight: 300;
   margin-top: 0.75rem;
 }
-.row .col:last-child h5 {
+.row .col .profit {
   color: rgb(72, 194, 55);
+}
+.row .col .loss {
+  color: rgb(250, 118, 78);
 }
 .item:hover {
   cursor: pointer;

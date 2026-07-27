@@ -27,7 +27,7 @@ const Menu = () => {
         <img
           src="/media/images/TradeXpert.svg"
           alt="TradeXpert logo"
-          style={{ maxWidth: "150px", height: "auto" }}
+          style={{ maxWidth: "125px", height: "auto" }}
         />
       </Link>
       <div className="menus">
