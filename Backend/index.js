@@ -21,9 +21,21 @@ const app = express();
 
 //not a secure setup -- error occurred when we don't include cors
 // app.use(cors());
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://tradexpert-l8cd.onrender.com",
+];
 app.use(
   cors({
-    origin: "http://localhost:5173", //Only requests coming from this origin are allowed
+    //Only requests coming from this origin are allowed
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true, //I allow cookies (or other credentials) to be sent with cross-origin requests.
   }),
 );

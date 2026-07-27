@@ -107,8 +107,10 @@ module.exports.Login = async (req, res) => {
     // Store JWT in cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      // secure: process.env.NODE_ENV === "production",
+      // sameSite: "lax",
+      secure: true,
+      sameSite: false,
       maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days
     });
 
