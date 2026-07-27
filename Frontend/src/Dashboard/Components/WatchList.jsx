@@ -3,7 +3,6 @@ import axios from "axios";
 
 import { showError } from "../../utils/toast";
 
-// import { Tooltip } from "@mui/icons-material";
 import { Tooltip, Grow } from "@mui/material";
 import {
   BarChartOutlined,
@@ -17,12 +16,14 @@ import { DoughnutChart } from "./DoughnutChart";
 
 import GeneralContext from "./GeneralContext";
 
+import server from "../../environment";
+
 function WatchList() {
   const [stockWatchlist, setStockWatchlist] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:3002/allWatchlist")
+      .get(`${server}/allWatchlist`)
       .then((res) => {
         setStockWatchlist(res.data);
       })

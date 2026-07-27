@@ -97,7 +97,7 @@ function Footer() {
             </a>
 
             <a
-              href="https://github.com/your-username/tradexpert"
+              href="https://github.com/tusharr-23/TradeXpert"
               target="_blank"
               rel="noopener noreferrer"
               className="footer-link d-block"

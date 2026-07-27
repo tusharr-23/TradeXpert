@@ -1,6 +1,4 @@
-/* =========================
-   Summary Container
-========================= */
+/* Summary Container */
 
 .summary-container {
   padding: 30px;
@@ -8,9 +6,7 @@
   min-height: 100vh;
 }
 
-/* =========================
-   Grid
-========================= */
+/* Grid */
 
 .summary-grid {
   display: grid;
@@ -23,9 +19,7 @@
   color: #387ed1;
 }
 
-/* =========================
-   Cards
-========================= */
+/* Cards */
 
 .summary-card {
   background: #ffffff;
@@ -41,9 +35,7 @@
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
 }
 
-/* =========================
-   Welcome Card
-========================= */
+/* Welcome Card */
 
 .welcome-card {
   background: linear-gradient(135deg, #ffffff, #f7fbff);
@@ -65,9 +57,7 @@
   line-height: 1.7;
 }
 
-/* =========================
-   Titles
-========================= */
+/* Titles */
 
 .summary-card h3 {
   margin: 0 0 22px;
@@ -76,18 +66,14 @@
   color: #1f2937;
 }
 
-/* =========================
-   Loading
-========================= */
+/* Loading */
 
 .loading-text {
   color: #64748b;
   font-size: 15px;
 }
 
-/* =========================
-   Watchlist Stats
-========================= */
+/* Watchlist Stats */
 
 .stat-box {
   margin-bottom: 30px;
@@ -111,9 +97,7 @@
   font-weight: 600;
 }
 
-/* =========================
-   Gainer / Loser
-========================= */
+/* Gainer / Loser */
 
 .market-info {
   display: flex;
@@ -147,9 +131,7 @@
   font-weight: 700;
 }
 
-/* =========================
-   Market Summary
-========================= */
+/* Market Summary */
 
 .market-summary {
   display: flex;
@@ -168,9 +150,7 @@
   font-weight: 700;
 }
 
-/* =========================
-   Portfolio
-========================= */
+/* Portfolio */
 
 .portfolio-card {
   grid-column: 1 / -1;
@@ -189,9 +169,7 @@
   font-size: 0.9rem;
 }
 
-/* =========================
-   Responsive
-========================= */
+/* Responsive */
 
 @media (max-width: 768px) {
   .summary-container {

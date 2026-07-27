@@ -1,8 +1,9 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import server from "../environment";
 
 const api = axios.create({
-  baseURL: "http://localhost:3002",
+  baseURL: `${server}`,
   withCredentials: true,
 });
 

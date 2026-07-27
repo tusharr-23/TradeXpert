@@ -84,12 +84,6 @@ function Navbar() {
               </Link>
             </li>
 
-            {/* <li className="nav-item">
-              <Link className={isActive("/product")} to="/product">
-                Product
-              </Link>
-            </li> */}
-
             <li className="nav-item">
               <Link
                 className={isActive("/pricing")}

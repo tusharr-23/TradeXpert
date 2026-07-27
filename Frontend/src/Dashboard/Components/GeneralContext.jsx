@@ -11,8 +11,6 @@ const GeneralContext = React.createContext({
 });
 
 export const GeneralContextProvider = (props) => {
-  // const [isBuyWindowOpen, setIsBuyWindowOpen] = useState(false);
-  // const [isSellWindowOpen, setIsSellWindowOpen] = useState(false);
   const [selectedStock, setSelectedStock] = useState(null);
   const [windowType, setWindowType] = useState(null); // "BUY" | "SELL | null"
 

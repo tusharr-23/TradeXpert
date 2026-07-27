@@ -22,7 +22,6 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      {/* <img src="logo.png" style={{ width: "3.75%" }} /> */}
       <Link className="navbar-brand" to="/">
         <img
           src="/media/images/TradeXpert.svg"

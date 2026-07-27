@@ -4,11 +4,13 @@ import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 
+import server from "../../environment";
+
 const Positions = () => {
   // const [allPositions, setAllPositions] = useState([]);
 
   // useEffect((res) => {
-  //   axios.get("http://localhost:3002/allPositions").then((res) => {
+  //   axios.get(`${server}/allPositions`).then((res) => {
   //     setAllPositions(res.data);
   //   });
   // }, []);
