@@ -110,7 +110,7 @@ module.exports.Login = async (req, res) => {
       // secure: process.env.NODE_ENV === "production",
       // sameSite: "lax",
       secure: true,
-      sameSite: false,
+      sameSite: "none",
       maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days
     });
 
