@@ -193,11 +193,11 @@ npm install
 
 ### Environment Variables
 Create a `.env` file inside the `Backend/` directory.
+API KEY for Yahoo Finance API 
 ```env
-PORT=3002
 MONGO_URL=
 TOKEN_KEY=
-NODE_ENV=development
+API_KEY=
 ```
 
 For the frontend, update `src/environment.jsx` to toggle between local and production backend URLs (`IS_PROD` flag).
